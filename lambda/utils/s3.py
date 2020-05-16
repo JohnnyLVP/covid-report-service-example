@@ -55,7 +55,8 @@ class S3Manager:
                 Bucket = bucket,
                 Key = s3_file_path
             )
-            file = result["Body"].read().decode()    
+            file = result["Body"].read()
+            
         except botocore.exceptions.ClientError as e:
             print("Exception ocurred while getting file from s3, {}".format(str(e)))
         
