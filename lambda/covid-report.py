@@ -8,7 +8,7 @@ def lambda_handler(event,context):
 
     print(json.dumps(event))
     try: 
-        message = event['body']
+        message = json.loads(event['body'])
         request_report = process_post_request(message)
         
         return get_response_hash(request_report)
